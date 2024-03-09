@@ -1,13 +1,12 @@
 
-import './App.css'
 
 function App() {
   
 
   return (
     <>
-      <div className='bg-black'>
-       hola mundo
+      <div className='bg-white'>
+        gola
       </div>
       
     </>
