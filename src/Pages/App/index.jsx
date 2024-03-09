@@ -3,6 +3,7 @@ import Login from '../Login'
 import ClubDetails from '../ClubDetails'
 import Landing from '../Landing'
 import SignUp from '../SignUp'
+import Profile from '../Profile'
 import './App.css'
 
 const AppRoutes = () =>{
@@ -10,7 +11,9 @@ const AppRoutes = () =>{
     {path: '/', element: <Login />}, 
     {path: '/sign-up', element: <SignUp />},
     {path: '/landing', element: <Landing />},
-    {path: '/club-details', element: <ClubDetails />}
+    {path: '/club-details', element: <ClubDetails />},
+    {path: '/profile', element: <Profile />}
+
   ])
 
   return routes;
