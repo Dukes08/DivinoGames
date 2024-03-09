@@ -3,8 +3,8 @@ function Login() {
 
     return (
       <>
-        <div className='bg-white'>
-          gola
+        <div className=''>
+          holaaaaa
         </div>
         
       </>
