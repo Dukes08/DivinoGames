@@ -2,16 +2,20 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 import { useUserContext } from "../../contexts/UserContext"
 import { logout } from "../../firebase/auth"
+import { useNavigate } from 'react-router-dom'
 
 function Navbar() {
+
+    const navigate = useNavigate();
     
     const { user, isLoadingUser } = useUserContext(); 
 
     const activeStyle = 'underline underline-offset-4';
 
     const handleLogout = async () => {
-       await logout();
-    }
+        await logout(() => navigate("/"));
+      };
+    
 
     if (isLoadingUser) {
         return <div>Cargando...</div>;
