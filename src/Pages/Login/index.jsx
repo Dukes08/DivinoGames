@@ -88,7 +88,9 @@ function Login() {
                     Log In
                   </button>
 
+                  <Link className="w-full" to="/sign-up">
                   <button className="w-full text-emerald-400 font-bold my-2 bg-white border-2 border-emerald-400 rounded-md p-4 text-center flex justify-center cursor-pointer">Sign Up</button>
+                  </Link>
                 
 
                 <div className="w-full flex items-center justify-center relative py-2">
@@ -104,8 +106,8 @@ function Login() {
 
 
                 
-                <Link to="/sign-up" className="w-full flex justify-center"><p className=" text-sm font-normal  "> Dont have a account <span className=" font-semibold underline underline-offset-2 cursor-pointer " >Sign Up</span></p>
-                </Link>
+                {/* <Link to="/sign-up" className="w-full flex justify-center"><p className=" text-sm font-normal  "> Dont have a account <span className=" font-semibold underline underline-offset-2 cursor-pointer " >Sign Up</span></p>
+                </Link> */}
 
             
             </div>
