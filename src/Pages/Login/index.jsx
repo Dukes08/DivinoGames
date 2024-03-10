@@ -13,14 +13,18 @@ function Login() {
       password: "",
     });
 
-  
+    const onSuccess = () => {
+      navigate(HOME_URL);
+    };
+
+    const onFail = (_error) => {
+      console.log("LOGIN FAILED, Try Again");
+    };
+
     const onSubmit = async (event) => {
       event.preventDefault();
-      
-      const {email, password} = formData;
-      await loginWithEmailAndPassword(email, password);
-      navigate("/landing")
-      
+  
+      await loginWithEmailAndPassword({ userData: formData, onSuccess, onFail });
     };
   
     const onChange = (event) => {

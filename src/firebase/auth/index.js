@@ -21,7 +21,7 @@ export const signInWithGoogle = async ({ onSuccess, onFail }) => {
         uid,
         email,
         name: displayName,
-        age: "",
+        
       });
     }
 
