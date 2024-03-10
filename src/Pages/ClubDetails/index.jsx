@@ -54,7 +54,7 @@ const ClubDetails = () => {
     <>
       <Navbar />
       <div className="text-center">
-        <h1 className="text-xl font-medium text-black">{clubInfo.nombre}</h1>
+        <h1 className="text-xl font-medium text-black mt-4">{clubInfo.nombre}</h1>
         <p>{clubInfo.descripcion}</p>
         <h2>Juegos Disponibles:</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">

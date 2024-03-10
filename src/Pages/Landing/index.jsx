@@ -35,7 +35,7 @@ import { getFirestore, collection, getDocs } from "firebase/firestore";
     <>
       <Navbar />
       <div className="text-center">
-        <h1 className="text-xl font-medium text-black">Clubes</h1>
+        <h1 className="text-xl font-medium text-black mt-4">Clubes</h1>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {clubs.map((club) => (
             <ClubCard key={club.ID} club={club} />
