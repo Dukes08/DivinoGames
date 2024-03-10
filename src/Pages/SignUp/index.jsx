@@ -2,6 +2,8 @@ import Google_logo from "../../assets/Google_logo.svg.png"
 import {Link, useNavigate} from "react-router-dom"
 import { registerWithEmailAndPassword, signInWithGoogle } from "../../firebase/auth";
 import { useState } from "react";
+import { getFirestore, collection, query, where, getDocs } from "firebase/firestore";
+
 function SignUp(){
     const navigate = useNavigate();
 
@@ -13,6 +15,8 @@ function SignUp(){
         password: "",
         favoritegame: "",
     })
+
+  
 
     const onSuccess = () => {
         navigate("/landing");
@@ -36,11 +40,40 @@ function SignUp(){
         });
       };
 
-    const onSubmit = async (event) => {
-       event.preventDefault();   
-       console.log({formData})
-       await registerWithEmailAndPassword({userData:formData, onSuccess, onFail})
-    }
+      const onSubmit = async (event) => {
+        event.preventDefault();
+
+        // Verificar si el juego favorito está en la base de datos antes de registrar al usuario
+        const gameExistsInDatabase = await checkGameInDatabase(formData.favoritegame);
+
+        if (gameExistsInDatabase) {
+    
+            await registerWithEmailAndPassword({ userData: formData, onSuccess, onFail });
+        } else {
+            alert("El juego favorito no se encuentra en la base de datos. No se puede registrar.");
+            // Puedes mostrar un mensaje al usuario indicando que el juego no está en la base de datos
+        }
+    };
+
+    // Verificar si el juego favorito está en la base de datos antes de registrar al usuario
+
+
+    const checkGameInDatabase = async (favoritegame) => {
+      const db = getFirestore();
+      const gamesRef = collection(db, "videojuegos");
+      const q = query(gamesRef, where("titulo", "==", favoritegame));
+      const querySnapshot = await getDocs(q);
+      
+      return !querySnapshot.empty;
+  };
+
+    // const onSubmit = async (event) => {
+    //    event.preventDefault();   
+    //    console.log({formData})
+    //    await registerWithEmailAndPassword({userData:formData, onSuccess, onFail})
+    // }
+
+
 
     return(
         <div className="w-full h-screen bg-emerald-400 flex justify-center items-center">
