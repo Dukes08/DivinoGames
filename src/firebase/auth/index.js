@@ -21,10 +21,10 @@ import {
           uid,
           email,
           name: displayName,
-          age: "",
+          favoritegame: "",
+          username: "",
         });
-      }
-  
+      }  
       if (onSuccess) {
         onSuccess();
       }
