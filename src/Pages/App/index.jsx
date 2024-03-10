@@ -6,6 +6,7 @@ import SearchPage from '../SearchPage'
 import SignUp from '../SignUp'
 import Profile from '../Profile'
 import './App.css'
+import { UserContextProvider } from '../../contexts/UserContext'
 
 const AppRoutes = () =>{
   let routes = useRoutes([
@@ -25,9 +26,12 @@ const App = () =>{
   
 
   return (
-    <BrowserRouter>
+    <UserContextProvider>
+      <BrowserRouter>
       <AppRoutes/>
     </BrowserRouter>
+    </UserContextProvider>
+    
   )
 }
 

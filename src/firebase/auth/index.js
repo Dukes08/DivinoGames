@@ -14,6 +14,8 @@ import {
     try {
       const result = await signInWithPopup(auth, googleProvider);
       const { isNewUser } = getAdditionalUserInfo(result);
+
+      console.log({isNewUser})
   
       if (isNewUser) {
         const { uid, email, displayName } = result.user;
@@ -91,7 +93,8 @@ import {
   }) => {
     try {
       const { email, password } = userData;
-      await signInWithEmailAndPassword(auth, email, password);
+      console.log({email, password})
+      await signInWithEmailAndPassword(auth, userData.email, userData.password);
   
       if (onSuccess) {
         onSuccess();
