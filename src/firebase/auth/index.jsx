@@ -48,6 +48,8 @@ import {
       });
     }
   };
+
+  
   
   // HANDLE REGISTER WITH EMAIL AND PASSWORD
   export const registerWithEmailAndPassword = async ({

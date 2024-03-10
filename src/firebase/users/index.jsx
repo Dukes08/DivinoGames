@@ -9,6 +9,7 @@ import {
     query,
     where,
   } from "firebase/firestore";
+
   import { db } from "../config";
   
   export const USERS_COLLECTION = "users";
