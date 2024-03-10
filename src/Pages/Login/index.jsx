@@ -14,7 +14,7 @@ function Login() {
     });
 
     const onSuccess = () => {
-      navigate(HOME_URL);
+      navigate("/landing");
     };
 
     const onFail = (_error) => {
@@ -23,14 +23,16 @@ function Login() {
 
     const onSubmit = async (event) => {
       event.preventDefault();
+      console.log({formData})
   
       await loginWithEmailAndPassword({ userData: formData, onSuccess, onFail });
     };
   
     const onChange = (event) => {
-      const { name, value } = event.target;
-  
-      setFormData((oldData) => ({ ...oldData, [name]: value }));
+      setFormData((oldData) => ({
+        ...oldData,
+        [event.target.name]: event.target.value,
+      }));
     };
   
     const handleGoogleClick = async () => {
@@ -106,7 +108,7 @@ function Login() {
                 </Link>
 
             
-          </div>
+            </div>
           </form>
         </div>
         
