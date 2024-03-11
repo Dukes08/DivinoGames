@@ -15,6 +15,7 @@ function SignUp(){
         email: "",
         password: "",
         favoritegame: "",
+        membresias: [],
     });
 
     const [availableGames, setAvailableGames] = useState([]);
