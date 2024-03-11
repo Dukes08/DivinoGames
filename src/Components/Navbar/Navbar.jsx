@@ -14,7 +14,7 @@ function Navbar() {
 
     const handleLogout = async () => {
         await logout(() => navigate("/"));
-      };
+    };
     
 
     if (isLoadingUser) {
@@ -23,8 +23,8 @@ function Navbar() {
 
     return (
         <nav className="flex items-center pt-8 pb-8 border-b w-full z-10 top-0 px-8 py-5">
-            <ul className='flex justify-center items-center w-full gap-72'>
-                <li className='font-semibold text-lg'>
+            <ul className='flex flex-col lg:flex-row lg:justify-center items-center lg:gap-72 w-full'>
+                <li className='font-semibold text-lg mb-4 lg:mb-0'>
                     <NavLink 
                         to='/landing' 
                         className={({ isActive }) => isActive ? activeStyle : undefined}
@@ -33,7 +33,7 @@ function Navbar() {
                     </NavLink>
                 </li>
 
-                <li className='font-semibold text-lg'>
+                <li className='font-semibold text-lg mb-4 lg:mb-0'>
                     <NavLink 
                         to='/buscador' 
                         className={({ isActive }) => isActive ? activeStyle : undefined}
@@ -42,7 +42,7 @@ function Navbar() {
                     </NavLink>
                 </li>
 
-                <li className='text-lg font-semibold'>
+                <li className='text-lg font-semibold mb-4 lg:mb-0'>
                     <NavLink 
                         to='/profile' 
                         className={({ isActive }) => isActive ? activeStyle : undefined}
@@ -62,6 +62,7 @@ function Navbar() {
 }
 
 export default Navbar;
+
 
 
 // {!isLoadingUser && (
